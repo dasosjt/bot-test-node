@@ -4,9 +4,9 @@ module.exports = function(app, passport) {
     // =====================================
     // HOME PAGE (with login links) ========
     // =====================================
-    /*app.get('/', function(req, res) {
+    app.get('/', function(req, res) {
         res.render('index.ejs'); // load the index.ejs file
-    });*/
+    });
 
     app.get('/webhook', function(req, res) {
       if (req.query['hub.verify_token'] === < 'my_voice_is_my_password' > ) {
