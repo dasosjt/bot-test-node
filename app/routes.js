@@ -8,6 +8,14 @@ module.exports = function(app, passport) {
         res.render('index.ejs'); // load the index.ejs file
     });
 
+    app.get('/webhook', function(req, res) {
+      if (req.query['hub.verify_token'] === < my_voice_is_my_password > ) {
+        res.send(req.query['hub.challenge']);
+      } else {
+        res.send('Error, wrong validation token');
+      }
+    });
+
     // =====================================
     // LOGIN ===============================
     // =====================================
