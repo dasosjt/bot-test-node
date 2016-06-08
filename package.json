@@ -1,10 +1,14 @@
 {
-  "name": "Bot test node",
+  "name": "fb-messenger-bot",
   "version": "0.1.0",
   "description": "Node.js application that serves webhook for Facebook Messenger API",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arcanous/fb-messenger-bot.git"
   },
   "keywords": [
     "fb messenger",
@@ -12,7 +16,12 @@
     "messenger",
     "bot"
   ],
-  "homepage": "https://github.com/Link-djst/bot-test-node#readme",
+  "author": "harijs.deksnis@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arcanous/fb-messenger-bot/issues"
+  },
+  "homepage": "https://github.com/arcanous/fb-messenger-bot#readme",
   "dependencies": {
     "body-parser": "^1.15.1",
     "express": "^4.13.4",
