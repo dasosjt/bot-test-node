@@ -9,7 +9,7 @@ module.exports = function(app, passport) {
     });*/
 
     app.get('/', function(req, res) {
-      if (req.query['hub.verify_token'] === < my_voice_is_my_password > ) {
+      if (req.query['hub.verify_token'] === < 'my_voice_is_my_password' > ) {
         res.send(req.query['hub.challenge']);
       } else {
         res.send('Error, wrong validation token');
