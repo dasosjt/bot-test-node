@@ -4,15 +4,15 @@ var fbMessage = require('./fbMessage/fbMessage');
 var debugMode = require('./config/debugMode');
 
 module.exports = function (config) {
-	
+
 	var senderId = config.senderId;
 
 
     switch (config.command) {
         case 'debug on':
-            
+
             debugMode.setDebugMode(senderId, true);
-            
+
             var textReply = new fbMessage
                 .PlainText("Debug turned on for sender: " + senderId)
                 .compose();
@@ -21,7 +21,7 @@ module.exports = function (config) {
 
         break;
         case 'debug off':
-            
+
             debugMode.setDebugMode(senderId, false);
 
             var textReply = new fbMessage
@@ -32,7 +32,7 @@ module.exports = function (config) {
 
         break;
         case 'reply with image':
-            
+
             var imageReply = new fbMessage
                 .Image("https://s-media-cache-ak0.pinimg.com/564x/fe/3f/87/fe3f8734980b5f0075a4221e20081520.jpg")
                 .compose();
@@ -42,7 +42,7 @@ module.exports = function (config) {
 
         break;
         case 'reply with button template':
-            
+
             var buttonTemplateReply = new fbMessage
                 .ButtonTemplate("Which button would you like to press today?")
                 .addButton({
@@ -62,7 +62,7 @@ module.exports = function (config) {
         break;
 
         case 'reply with generic template':
-            
+
             var genericTemplateReply = new fbMessage
                 .GenericTemplate()
                 .addElement({
@@ -99,22 +99,22 @@ module.exports = function (config) {
                     "title": "Some third option",
                     "image_url": "https://s-media-cache-ak0.pinimg.com/564x/fe/3f/87/fe3f8734980b5f0075a4221e20081520.jpg",
                     "subtitle": "Knight in mystic light"
-                })   
+                })
                     .addButton({
                         "type": "web_url",
                         "url": "https://s-media-cache-ak0.pinimg.com/564x/fe/3f/87/fe3f8734980b5f0075a4221e20081520.jpg",
                         "title": "View Item"
-                    })                              
+                    })
                     .addButton({
                         "type": "postback",
                         "title": "Do a postback",
                         "payload": "ANOTHER_POSTBACK"
-                    })                 
+                    })
                     .addButton({
                         "type": "postback",
                         "title": "Or not",
                         "payload": "ANOTHER_POSTBACK1"
-                    })                               
+                    })
                 .compose();
 
 
@@ -122,7 +122,7 @@ module.exports = function (config) {
 
         break;
         case 'reply with receipt template':
-            
+
             var receiptTemplateReply = new fbMessage
                 .ReceiptTemplate()
                 .compose();
