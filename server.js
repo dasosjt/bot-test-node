@@ -7,7 +7,7 @@ var fbMessengerBot = require('./fbMessengerBot/');
 app.use(bodyParser.json());
 
 app.get('/webhook', function (req, res) {
-  if (req.query['hub.verify_token'] === 'writeButRememberAnythingHere') {
+  if (req.query['hub.verify_token'] === 'HelloEveryone') {
     res.send(req.query['hub.challenge']);
   } else {
     res.send('Error, wrong validation token');
