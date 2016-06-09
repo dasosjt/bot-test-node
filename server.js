@@ -3,7 +3,6 @@ var app = express();
 var bodyParser = require('body-parser')
 var fbMessengerBot = require('./fbMessengerBot/');
 
-
 app.use(bodyParser.json());
 
 app.get('/webhook', function (req, res) {
