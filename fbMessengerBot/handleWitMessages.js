@@ -1,5 +1,6 @@
 var sendMessage = require('./fbMessage/sendMessage');
 var fbMessage = require('./fbMessage/fbMessage');
+var Wit = require('node-wit').Wit;
 
 const WIT_TOKEN = "K57OVGCGBAXTLARG6MLHCHFRAEXKII6A";
 
