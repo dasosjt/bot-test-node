@@ -1,8 +1,8 @@
 var sendMessage = require('./fbMessage/sendMessage');
 var fbMessage = require('./fbMessage/fbMessage');
-var Wit = require('node-wit').Wit;
+/*var Wit = require('node-wit').Wit;
 
-const WIT_TOKEN = "K57OVGCGBAXTLARG6MLHCHFRAEXKII6A";
+const WIT_TOKEN = "K57OVGCGBAXTLARG6MLHCHFRAEXKII6A";*/
 
 
 
@@ -69,7 +69,7 @@ const actions = {
 };
 
 // Setting up our bot
-const wit = new Wit(WIT_TOKEN, actions);
+/*const wit = new Wit(WIT_TOKEN, actions);*/
 
 
 
