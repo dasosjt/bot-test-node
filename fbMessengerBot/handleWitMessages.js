@@ -9,11 +9,11 @@ const WIT_TOKEN = "K57OVGCGBAXTLARG6MLHCHFRAEXKII6A";*/
 // This will contain all user sessions.
 // Each session has an entry:
 // sessionId -> {fbid: facebookUserId, context: sessionState}
-const sessions = {};
+/*const sessions = {};*/
 
 // Wit.ai bot specific code
 
-const findOrCreateSession = (fbid) => {
+/*const findOrCreateSession = (fbid) => {
   let sessionId;
   // Let's see if we already have a session for the user fbid
   Object.keys(sessions).forEach(k => {
@@ -28,7 +28,7 @@ const findOrCreateSession = (fbid) => {
     sessions[sessionId] = {fbid: fbid, context: {}};
   }
   return sessionId;
-};
+};*/
 
 // Our bot actions
 /*const actions = {
@@ -79,7 +79,7 @@ module.exports = function (config) {
 
   // We retrieve the user's current session, or create one if it doesn't exist
   // This is needed for our bot to figure out the conversation history
-  const sessionId = findOrCreateSession(senderId);
+  /*const sessionId = findOrCreateSession(senderId);*/
 
 
   var textReply = new fbMessage
