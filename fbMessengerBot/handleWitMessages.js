@@ -13,7 +13,7 @@ const sessions = {};
 
 // Wit.ai bot specific code
 
-/*const findOrCreateSession = (fbid) => {
+var findOrCreateSession = (fbid) => {
   let sessionId;
   // Let's see if we already have a session for the user fbid
   Object.keys(sessions).forEach(k => {
@@ -28,7 +28,7 @@ const sessions = {};
     sessions[sessionId] = {fbid: fbid, context: {}};
   }
   return sessionId;
-};*/
+};
 
 // Our bot actions
 /*const actions = {
