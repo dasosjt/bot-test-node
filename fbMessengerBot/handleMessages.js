@@ -3,11 +3,12 @@ var fbMessage = require('./fbMessage/fbMessage');
 
 var handleBotCommands = require('./handleBotCommands');
 var handleSlashCommands = require('./handleSlashCommands');
+var handleWitMessages = require('./handleWitMessages');
 
 var debugMode = require('./config/debugMode');
 
 module.exports = function (senderId, message) {
-    
+
     var messageText = message.text;
 
     if (debugMode.getDebugMode(senderId)) {
@@ -16,38 +17,26 @@ module.exports = function (senderId, message) {
             .compose();
 
         sendMessage(senderId, textReply);
-    }
-
-
-    if (messageText.toLowerCase().substr(0, 5) === '@bot ') {
+    }else if (messageText.toLowerCase().substr(0, 5) === '@bot ') {
 
         handleBotCommands({
             senderId : senderId,
             command : messageText.toLowerCase().substr(5)
         });
 
-    }
-
-
-    if (messageText.substr(0, 1) === '/') {
+    }else if (messageText.substr(0, 1) === '/') {
 
         handleSlashCommands({
             senderId : senderId,
             command : messageText.toLowerCase().substr(1)
         });
 
+    } else {
+      handleWitMessages({
+          senderId : senderId,
+          message : messageText.toLowerCase()
+      });
     }
-
-
-    //ok now here we can handle generic messages received by the bot...
-
-
-
-
-
-
-
-
 
 
 };
