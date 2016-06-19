@@ -9,7 +9,7 @@ const WIT_TOKEN = "K57OVGCGBAXTLARG6MLHCHFRAEXKII6A";*/
 // This will contain all user sessions.
 // Each session has an entry:
 // sessionId -> {fbid: facebookUserId, context: sessionState}
-/*const sessions = {};*/
+const sessions = {};
 
 // Wit.ai bot specific code
 
