@@ -13,11 +13,11 @@ const sessions = {};
 
 // Wit.ai bot specific code
 
-var findOrCreateSession = (fbid) => {
+var findOrCreateSession = (senderId) => {
   let sessionId;
   // Let's see if we already have a session for the user fbid
   Object.keys(sessions).forEach(k => {
-    if (sessions[k].fbid === fbid) {
+    if (sessions[k].senderId === senderId) {
       // Yep, got it!
       sessionId = k;
     }
@@ -25,7 +25,7 @@ var findOrCreateSession = (fbid) => {
   if (!sessionId) {
     // No session found for user fbid, let's create a new one
     sessionId = new Date().toISOString();
-    sessions[sessionId] = {fbid: fbid, context: {}};
+    sessions[sessionId] = {senderId: senderId, context: {}};
   }
   return sessionId;
 };
