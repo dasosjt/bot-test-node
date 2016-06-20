@@ -83,7 +83,7 @@ module.exports = function (config) {
 
 
   var textReply = new fbMessage
-      .PlainText("SenderId: " + senderId +"SessionId: "+ sessionId +" Message: " + JSON.stringify(message))
+      .PlainText("SenderId: " + senderId +" Message: " + JSON.stringify(message))
       .compose();
 
   sendMessage(senderId, textReply);
