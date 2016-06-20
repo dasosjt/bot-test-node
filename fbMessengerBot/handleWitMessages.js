@@ -6,6 +6,30 @@ const WIT_TOKEN = "K57OVGCGBAXTLARG6MLHCHFRAEXKII6A";*/
 
 
 
+// This will contain all user sessions.
+// Each session has an entry:
+// sessionId -> {fbid: facebookUserId, context: sessionState}
+const sessions = {};
+
+// Wit.ai bot specific code
+
+/*var findOrCreateSession = (senderId) => {
+  let sessionId;
+  // Let's see if we already have a session for the user fbid
+  Object.keys(sessions).forEach(k => {
+    if (sessions[k].senderId === senderId) {
+      // Yep, got it!
+      sessionId = k;
+    }
+  });
+  if (!sessionId) {
+    // No session found for user fbid, let's create a new one
+    sessionId = new Date().toISOString();
+    sessions[sessionId] = {senderId: senderId, context: {}};
+  }
+  return sessionId;
+};*/
+
 // Our bot actions
 /*const actions = {
   say(sessionId, context, message, cb) {
@@ -52,30 +76,6 @@ const WIT_TOKEN = "K57OVGCGBAXTLARG6MLHCHFRAEXKII6A";*/
 module.exports = function (config) {
   var senderId = config.senderId;
   var message = config.message.split(' ');
-
-  // This will contain all user sessions.
-  // Each session has an entry:
-  // sessionId -> {fbid: facebookUserId, context: sessionState}
-  const sessions = {};
-
-  // Wit.ai bot specific code
-
-  const findOrCreateSession = (senderId) => {
-    let sessionId;
-    // Let's see if we already have a session for the user fbid
-    Object.keys(sessions).forEach(k => {
-      if (sessions[k].senderId === senderId) {
-        // Yep, got it!
-        sessionId = k;
-      }
-    });
-    if (!sessionId) {
-      // No session found for user fbid, let's create a new one
-      sessionId = new Date().toISOString();
-      sessions[sessionId] = {senderId: senderId, context: {}};
-    }
-    return sessionId;
-  };
 
   // We retrieve the user's current session, or create one if it doesn't exist
   // This is needed for our bot to figure out the conversation history
