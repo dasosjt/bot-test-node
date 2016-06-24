@@ -49,11 +49,6 @@ const actions = {
             err
           );
         }*/
-        var textReply = new fbMessage
-            .PlainText(message)
-            .compose();
-
-        sendMessage(recipientId, textReply);
         // Let's give the wheel back to our bot
         cb();
       });
