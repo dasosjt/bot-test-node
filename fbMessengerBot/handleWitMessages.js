@@ -80,11 +80,11 @@ module.exports = function (config) {
 
   // We retrieve the user's current session, or create one if it doesn't exist
   // This is needed for our bot to figure out the conversation history
-  /*const sessionId = findOrCreateSession(senderId);*/
+  const sessionId = findOrCreateSession(senderId);
 
 
   var textReply = new fbMessage
-      .PlainText("SenderId: " + senderId +" Message: " + JSON.stringify(message))
+      .PlainText("SenderId: " + senderId +" SessionId: "+sessionId+" Message: " + JSON.stringify(message))
       .compose();
 
   sendMessage(senderId, textReply);
