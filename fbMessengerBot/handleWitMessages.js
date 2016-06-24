@@ -1,3 +1,4 @@
+"use strict"
 var sendMessage = require('./fbMessage/sendMessage');
 var fbMessage = require('./fbMessage/fbMessage');
 /*var Wit = require('node-wit').Wit;
@@ -13,7 +14,7 @@ const sessions = {};
 
 // Wit.ai bot specific code
 
-/*var findOrCreateSession = (senderId) => {
+const findOrCreateSession = (senderId) => {
   let sessionId;
   // Let's see if we already have a session for the user fbid
   Object.keys(sessions).forEach(k => {
@@ -28,7 +29,7 @@ const sessions = {};
     sessions[sessionId] = {senderId: senderId, context: {}};
   }
   return sessionId;
-};*/
+};
 
 // Our bot actions
 /*const actions = {
