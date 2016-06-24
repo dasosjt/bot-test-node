@@ -36,11 +36,11 @@ const actions = {
   say(sessionId, context, message, cb) {
     // Our bot has something to say!
     // Let's retrieve the Facebook user whose session belongs to
-    const recipientId = sessions[sessionId].fbid;
+    const recipientId = sessions[sessionId].senderId;
     if (recipientId) {
       // Yay, we found our recipient!
       // Let's forward our bot response to her.
-      fbMessage(recipientId, message, (err, data) => {
+      /*fbMessage(recipientId, message, (err, data) => {
         if (err) {
           console.log(
             'Oops! An error occurred while forwarding the response to',
@@ -48,8 +48,12 @@ const actions = {
             ':',
             err
           );
-        }
+        }*/
+        var textReply = new fbMessage
+            .PlainText(message)
+            .compose();
 
+        sendMessage(recipientId, textReply);
         // Let's give the wheel back to our bot
         cb();
       });
@@ -86,7 +90,7 @@ module.exports = function (config) {
 
   // Let's forward the message to the Wit.ai Bot Engine
   // This will run all actions until our bot has nothing left to do
-  /*wit.runActions(
+  wit.runActions(
     sessionId, // the user's current session
     message, // the user's message
     sessions[sessionId].context, // the user's current session state
@@ -109,7 +113,7 @@ module.exports = function (config) {
         sessions[sessionId].context = context;
       }
     }
-  );*/
+  );
 
 
   var textReply = new fbMessage
