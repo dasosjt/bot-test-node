@@ -32,7 +32,7 @@ const findOrCreateSession = (senderId) => {
 };
 
 // Our bot actions
-const actions = {
+/*const actions = {
   say(sessionId, context, message, cb) {
     // Our bot has something to say!
     // Let's retrieve the Facebook user whose session belongs to
@@ -40,7 +40,7 @@ const actions = {
     if (recipientId) {
       // Yay, we found our recipient!
       // Let's forward our bot response to her.
-      /*fbMessage(recipientId, message, (err, data) => {
+      fbMessage(recipientId, message, (err, data) => {
         if (err) {
           console.log(
             'Oops! An error occurred while forwarding the response to',
@@ -48,7 +48,7 @@ const actions = {
             ':',
             err
           );
-        }*/
+        }
         // Let's give the wheel back to our bot
         cb();
       });
@@ -66,10 +66,10 @@ const actions = {
   },
   // You should implement your custom actions here
   // See https://wit.ai/docs/quickstart
-};
+};*/
 
 // Setting up our bot
-const wit = new Wit(WIT_TOKEN, actions);
+/*const wit = new Wit(WIT_TOKEN, actions);*/
 
 
 
@@ -85,7 +85,7 @@ module.exports = function (config) {
 
   // Let's forward the message to the Wit.ai Bot Engine
   // This will run all actions until our bot has nothing left to do
-  wit.runActions(
+  /*wit.runActions(
     sessionId, // the user's current session
     message, // the user's message
     sessions[sessionId].context, // the user's current session state
@@ -108,7 +108,7 @@ module.exports = function (config) {
         sessions[sessionId].context = context;
       }
     }
-  );
+  );*/
 
 
   var textReply = new fbMessage
