@@ -41,7 +41,7 @@ const actions = {
     if (recipientId) {
       // Yay, we found our recipient!
       // Let's forward our bot response to her.
-      /*fbMessage(recipientId, message, (err, data) => {
+      fbMessage(recipientId, message, (err, data) => {
         if (err) {
           console.log(
             'Oops! An error occurred while forwarding the response to',
@@ -49,8 +49,7 @@ const actions = {
             ':',
             err
           );
-        }*/
-        console.log(message);
+        }
         // Let's give the wheel back to our bot
         cb();
       });
