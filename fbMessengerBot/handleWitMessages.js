@@ -81,7 +81,6 @@ const actions = {
 const wit = new Wit(WIT_TOKEN, actions);
 
 
-
 module.exports = function (config) {
   var senderId = config.senderId;
   var message = config.message.split(' ');
