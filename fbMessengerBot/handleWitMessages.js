@@ -46,7 +46,7 @@ const actions = {
           .PlainText(message)
           .compose();
 
-      sendMessage(senderId, textReply);
+      sendMessage(recipientId, textReply);
 
       /*fbMessage(recipientId, message, (err, data) => {
         if (err) {
