@@ -32,7 +32,7 @@ const findOrCreateSession = (senderId) => {
 };
 
 // Our bot actions
-/*const actions = {
+const actions = {
   say(sessionId, context, message, cb) {
     // Our bot has something to say!
     // Let's retrieve the Facebook user whose session belongs to
@@ -66,7 +66,7 @@ const findOrCreateSession = (senderId) => {
   },
   // You should implement your custom actions here
   // See https://wit.ai/docs/quickstart
-};*/
+};
 
 // Setting up our bot
 /*const wit = new Wit(WIT_TOKEN, actions);*/
