@@ -34,6 +34,7 @@ const findOrCreateSession = (senderId) => {
 // Our bot actions
 const actions = {
   say(sessionId, context, message, cb) {
+    console.log(message);
     // Our bot has something to say!
     // Let's retrieve the Facebook user whose session belongs to
     const recipientId = sessions[sessionId].senderId;
