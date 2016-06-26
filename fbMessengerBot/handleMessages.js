@@ -10,6 +10,7 @@ var debugMode = require('./config/debugMode');
 module.exports = function (senderId, message) {
 
     var messageText = message.text;
+    console.log(message.text);
 
     if (debugMode.getDebugMode(senderId)) {
         var textReply = new fbMessage
