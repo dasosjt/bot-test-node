@@ -41,7 +41,7 @@ const actions = {
     if (recipientId) {
       // Yay, we found our recipient!
       // Let's forward our bot response to her.
-      fbMessage(recipientId, message, (err, data) => {
+      /*fbMessage(recipientId, message, (err, data) => {
         if (err) {
           console.log(
             'Oops! An error occurred while forwarding the response to',
@@ -52,12 +52,13 @@ const actions = {
         }
         // Let's give the wheel back to our bot
         cb();
-      });
+      });*/
     } else {
       console.log('Oops! Couldn\'t find user for session:', sessionId);
       // Giving the wheel back to our bot
-      cb();
+      /*cb();*/
     }
+    cb();
   },
   merge(sessionId, context, entities, message, cb) {
     cb(context);
@@ -86,7 +87,7 @@ module.exports = function (config) {
 
   // Let's forward the message to the Wit.ai Bot Engine
   // This will run all actions until our bot has nothing left to do
-  /*wit.runActions(
+  wit.runActions(
     sessionId, // the user's current session
     message, // the user's message
     sessions[sessionId].context, // the user's current session state
@@ -109,7 +110,7 @@ module.exports = function (config) {
         sessions[sessionId].context = context;
       }
     }
-  );*/
+  );
 
 
   var textReply = new fbMessage
