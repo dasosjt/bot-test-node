@@ -41,6 +41,13 @@ const actions = {
     if (recipientId) {
       // Yay, we found our recipient!
       // Let's forward our bot response to her.
+
+      var botReply = new fbMessage
+          .PlainText(message)
+          .compose();
+
+      sendMessage(senderId, textReply);
+
       /*fbMessage(recipientId, message, (err, data) => {
         if (err) {
           console.log(
@@ -113,10 +120,10 @@ module.exports = function (config) {
   );
 
 
-  var textReply = new fbMessage
+  /*var textReply = new fbMessage
       .PlainText("SenderId: " + senderId +" SessionId: "+sessionId  +" Message: " + JSON.stringify(message))
       .compose();
 
-  sendMessage(senderId, textReply);
+  sendMessage(senderId, textReply);*/
 
 }
