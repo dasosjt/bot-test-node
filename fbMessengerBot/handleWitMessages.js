@@ -69,7 +69,7 @@ const actions = {
 };
 
 // Setting up our bot
-/*const wit = new Wit(WIT_TOKEN, actions);*/
+const wit = new Wit(WIT_TOKEN, actions);
 
 
 
