@@ -5,10 +5,6 @@ Super lightweight Node.js / Express application that serves webhook for Facebook
 
 ## Installing
 
-Fork or clone the repo. 
-
-Turn on appropriate background music on. [Uplink OST](https://www.youtube.com/watch?v=QliQ0livbeQ) is highly suggested.
-
 Follow the guide at [Facebook Messenger Platform - Getting Started](https://developers.facebook.com/docs/messenger-platform/quickstart). You should have a Facebook page and App set up before continuing.
 
 Set up web access to your appication. HTTPS is prefered. If you don't have a personal preference, [Heroku](https://www.heroku.com/) is well suited for quick deployment, development and experimentation.
