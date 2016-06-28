@@ -109,7 +109,7 @@ const actions = {
     // context.forecast = apiCall(context.loc)
     console.log(context);
     console.log(context.municipios);
-    if(context.municipios == 'mixco'){
+    if(context.municipios.localeCompare("mixco")){
       context.E = 'Si';
     }
     context.E = 'No';
