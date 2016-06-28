@@ -106,7 +106,9 @@ const actions = {
   ['municipios'](sessionId, context, cb) {
     // Here should go the api call, e.g.:
     // context.forecast = apiCall(context.loc)
-    context.E = 'sunny';
+    if(context.municipios==="mixco"){
+      context.E = 'sunny';  
+    }
     cb(context);
   },
 
