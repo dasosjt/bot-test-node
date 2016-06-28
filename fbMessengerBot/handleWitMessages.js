@@ -75,8 +75,10 @@ const actions = {
   // You should implement your custom actions here
   // See https://wit.ai/docs/quickstart
 
-  'municipios':(sessionId, context, cb)=>{
-    context.E = 'Si'
+  ['municipios'](sessionId, context, cb) {
+    // Here should go the api call, e.g.:
+    // context.forecast = apiCall(context.loc)
+    context.E = 'sunny';
     cb(context);
   },
 
