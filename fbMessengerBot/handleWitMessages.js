@@ -83,7 +83,7 @@ const wit = new Wit(WIT_TOKEN, actions);
 
 module.exports = function (config) {
   var senderId = config.senderId;
-  var message = config.message.split(' ');
+  var message = config.message;
   console.log("Message before sended to Wit: ",message);
 
   // We retrieve the user's current session, or create one if it doesn't exist
