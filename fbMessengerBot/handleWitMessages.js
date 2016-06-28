@@ -87,7 +87,6 @@ const actions = {
     }*/
     const municipios = firstEntityValue(entities, 'municipios');
     if (municipios) {
-      console.log(municipios);
       context.municipios = municipios;
     }
     cb(context);
@@ -106,9 +105,8 @@ const actions = {
   ['municipios'](sessionId, context, cb) {
     // Here should go the api call, e.g.:
     // context.forecast = apiCall(context.loc)
-    if(context.municipios==="mixco"){
-      context.E = 'sunny';  
-    }
+    console.log(context);
+    context.E = 'sunny';
     cb(context);
   },
 
