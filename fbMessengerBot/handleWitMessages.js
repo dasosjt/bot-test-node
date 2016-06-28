@@ -86,13 +86,13 @@ const actions = {
       context.loc = loc;
     }*/
     console.log("Context before firstEntityValue ", context);
-    console.log("Entities before firstEntityValue ", entities);
+    /*console.log("Entities before firstEntityValue ", entities);*/
     const municipios = firstEntityValue(entities, 'municipios');
     if (municipios) {
       context.municipios = municipios;
     }
     console.log("Context after firstEntityValue ", context);
-    console.log("Entities after firstEntityValue ", entities);
+    /*console.log("Entities after firstEntityValue ", entities);*/
     cb(context);
   },
   error(sessionId, context, error) {
