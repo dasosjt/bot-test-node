@@ -74,6 +74,16 @@ const actions = {
   },
   // You should implement your custom actions here
   // See https://wit.ai/docs/quickstart
+
+  'municipios':(sessionId, context, cb)=>{
+    console.log("Excutes Action 'municipios'");
+    if (context.municipios === 'mixco'){
+      console.log("Yes, its Mixco time");
+      context.pertenece = 'Si';
+    }
+    cb(context);
+  },
+
 };
 
 // Setting up our bot
