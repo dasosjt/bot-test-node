@@ -108,7 +108,10 @@ const actions = {
     // Here should go the api call, e.g.:
     // context.forecast = apiCall(context.loc)
     console.log(context);
-    context.E = 'sunny';
+    if(municipios === 'mixco'){
+      context.E = 'Si';
+    }
+    context.E = 'No';  
     cb(context);
   },
 
