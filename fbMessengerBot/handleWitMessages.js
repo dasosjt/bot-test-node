@@ -111,8 +111,9 @@ const actions = {
     console.log(context.municipios);
     if(context.municipios.localeCompare("mixco")){
       context.E = 'Si';
+    }else{
+      context.E = 'No';
     }
-    context.E = 'No';
     cb(context);
   },
 
