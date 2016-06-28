@@ -85,12 +85,12 @@ const actions = {
     if (loc) {
       context.loc = loc;
     }*/
-    console.log(context);
+    console.log("Context before firstEntityValue ", context);
     const municipios = firstEntityValue(entities, 'municipios');
     if (municipios) {
       context.municipios = municipios;
     }
-    console.log(context);
+    console.log("Context after firstEntityValue ", context);
     cb(context);
   },
   error(sessionId, context, error) {
@@ -108,6 +108,7 @@ const actions = {
     // Here should go the api call, e.g.:
     // context.forecast = apiCall(context.loc)
     console.log(context);
+    console.log(context.municipios);
     if(context.municipios == 'mixco'){
       context.E = 'Si';
     }
