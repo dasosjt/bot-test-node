@@ -81,6 +81,12 @@ const actions = {
     context.E = 'sunny';
     cb(context);
   },
+  ['municipios1'](sessionId, context, cb) {
+    // Here should go the api call, e.g.:
+    // context.forecast = apiCall(context.loc)
+    context.E = 'sunny';
+    cb(context);
+  },
 
 };
 
