@@ -85,10 +85,12 @@ const actions = {
     if (loc) {
       context.loc = loc;
     }*/
+    console.log(context);
     const municipios = firstEntityValue(entities, 'municipios');
     if (municipios) {
       context.municipios = municipios;
     }
+    console.log(context);
     cb(context);
   },
   error(sessionId, context, error) {
