@@ -76,11 +76,7 @@ const actions = {
   // See https://wit.ai/docs/quickstart
 
   'municipios':(sessionId, context, cb)=>{
-    console.log("Excutes Action 'municipios'",context.municipios);
-    if (context.municipios === 'mixco'){
-      console.log("Yes, its Mixco time");
-      context.pertenece = 'Si';
-    }
+    context.E = 'Si'
     cb(context);
   },
 
