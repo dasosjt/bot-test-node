@@ -53,7 +53,7 @@ const actions = {
     if (recipientId) {
       // Yay, we found our recipient!
       // Let's forward our bot response to her.
-
+      console.log("Context before say: ",context);
       var botReply = new fbMessage
           .PlainText(message)
           .compose();
@@ -108,7 +108,6 @@ const actions = {
     // Here should go the api call, e.g.:
     // context.forecast = apiCall(context.loc)
     console.log(context);
-    console.log(context.municipios);
     if(context.municipios === "mixco"){
       context.E = 'Si';
     }else{
