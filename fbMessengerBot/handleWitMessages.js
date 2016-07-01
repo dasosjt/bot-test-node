@@ -4,7 +4,7 @@ var fbMessage = require('./fbMessage/fbMessage');
 let Wit = null;
 let log = null;
 Wit = require('node-wit').Wit;
-logs = require('node-wit').log;
+log = require('node-wit').log;
 
 const WIT_TOKEN = "K57OVGCGBAXTLARG6MLHCHFRAEXKII6A";
 
