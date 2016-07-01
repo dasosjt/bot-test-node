@@ -21,6 +21,9 @@
   "bugs": {
     "url": "https://github.com/arcanous/fb-messenger-bot/issues"
   },
+  "engines": {
+    "node": "6.2.2"
+  },
   "homepage": "https://github.com/arcanous/fb-messenger-bot#readme",
   "dependencies": {
     "body-parser": "^1.15.1",
