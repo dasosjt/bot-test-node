@@ -16,12 +16,11 @@ app.get('/webhook', function (req, res) {
 app.post('/webhook', fbMessengerBot);
 
 
-
 app.use(function(req, res){
    res.sendStatus(400);
 });
 
-  
+
 
 
 app.listen(process.env.PORT || 8000, function () {});
