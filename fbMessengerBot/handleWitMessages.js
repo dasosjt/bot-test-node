@@ -121,7 +121,7 @@ const actions = {
 };
 
 // Setting up our bot
-const wit = new Wit(WIT_TOKEN, actions);
+/*const wit = new Wit(WIT_TOKEN, actions);*/
 
 
 module.exports = function (config) {
@@ -137,7 +137,7 @@ module.exports = function (config) {
 
   // Let's forward the message to the Wit.ai Bot Engine
   // This will run all actions until our bot has nothing left to do
-  wit.runActions(
+/*  wit.runActions(
     sessionId, // the user's current session
     message, // the user's message
     sessions[sessionId].context, // the user's current session state
@@ -160,5 +160,5 @@ module.exports = function (config) {
         sessions[sessionId].context = context;
       }
     }
-  );
+  );*/
 }
