@@ -72,7 +72,7 @@ const actions = {
           .PlainText(message)
           .compose();
 
-      return sendMessage(recipientId, botReply);
+      sendMessage(recipientId, botReply);
     } else {
       console.error('Oops! Couldn\'t find user for session:', sessionId);
       // Giving the wheel back to our bot
