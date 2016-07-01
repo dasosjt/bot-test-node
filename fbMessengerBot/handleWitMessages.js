@@ -67,7 +67,12 @@ const actions = {
           err.stack || err
         );
       });*/
-      return Promise.resolve()
+      console.log("Context before say: ",context);
+      var botReply = new fbMessage
+          .PlainText(message)
+          .compose();
+
+      return sendMessage(recipientId, botReply);
     } else {
       console.error('Oops! Couldn\'t find user for session:', sessionId);
       // Giving the wheel back to our bot
