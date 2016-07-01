@@ -27,4 +27,6 @@ module.exports = function sendMessage(recipientId, messageData, notificationType
             console.log('Error: ', response.body.error);
         }
     });
+
+    return request;
 };
