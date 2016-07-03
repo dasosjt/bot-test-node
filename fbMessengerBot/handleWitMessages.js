@@ -73,7 +73,7 @@ const actions = {
     // Let's retrieve the Facebook user whose session belongs to
     const recipientId = sessions[sessionId].senderId;
     console.log(sessions[sessionId].context);
-    consoloe.log(entities);
+    console.log(entities);
     if (recipientId) {
       // Yay, we found our recipient!
       // Let's forward our bot response to her.
