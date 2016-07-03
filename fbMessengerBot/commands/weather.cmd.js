@@ -10,11 +10,11 @@ module.exports = function (commandArguments) {
         var a;
 
         weather.find({search: commandArguments, degreeType: 'C'}, function(err, result) {
-             
+
             var result = result[0];
-           
+
             if (err) {
-                
+
                 a = new fbMessage
                     .PlainText("Couldn't find wather for " + commandArguments)
                     .compose();
@@ -38,7 +38,7 @@ module.exports = function (commandArguments) {
                     .compose();
 
             }
-            
+
 
             resolve(a);
 
