@@ -1,5 +1,5 @@
 "use strict"
-const token = encodeURIComponent(require('./config/appToken'));
+const token = require('./config/appToken');
 const fetch = require('node-fetch');
 
 let Wit = null;
@@ -28,7 +28,6 @@ const fbMessage = (id, text) => {
     return json;
   });
 };
-
 
 // This will contain all user sessions.
 // Each session has an entry:
