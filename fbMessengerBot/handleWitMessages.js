@@ -8,6 +8,25 @@ log = require('node-wit').log;
 
 const WIT_TOKEN = "K57OVGCGBAXTLARG6MLHCHFRAEXKII6A";
 
+const fbMessage = (recipientId, messageData) => {
+  const body = JSON.stringify({
+    recipient: { recipientId },
+    message: { messageData },
+  });
+  const qs = 'access_token=' + encodeURIComponent(token);
+  return fetch('https://graph.facebook.com/me/messages?' + qs, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body,
+  })
+  .then(rsp => rsp.json())
+  .then(json => {
+    if (json.error && json.error.message) {
+      throw new Error(json.error.message);
+    }
+    return json;
+  });
+  };
 
 
 // This will contain all user sessions.
@@ -57,7 +76,7 @@ const actions = {
       // Yay, we found our recipient!
       // Let's forward our bot response to her.
       // We return a promise to let our bot know when we're done sending
-      return sendMessage(recipientId, message)
+      return fbMessage(recipientId, message)
       .then(() => null)
       .catch((err) => {
         console.error(
