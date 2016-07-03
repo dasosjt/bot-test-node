@@ -2,7 +2,7 @@
 const APP_TOKEN = require('./config/appToken');
 const fetch = require('node-fetch');
 
-const WIT_TOKEN = 'K57OVGCGBAXTLARG6MLHCHFRAEXKII6A';
+const WIT_TOKEN = 'XRGPHLTWOOF55IZSLP5NIBIUP3G4TBQD';
 
 let Wit = null;
 let log = null;
