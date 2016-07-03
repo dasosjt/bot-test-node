@@ -1,5 +1,5 @@
 "use strict"
-const token = require('./config/appToken');
+const token = encodeURIComponent(require('./config/appToken'));
 const fetch = require('node-fetch');
 
 let Wit = null;
