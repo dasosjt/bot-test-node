@@ -1,4 +1,5 @@
 "use strict"
+const token = require('./config/appToken');
 const fetch = require('node-fetch');
 
 let Wit = null;
@@ -13,8 +14,7 @@ const fbMessage = (recipientId, messageData) => {
     recipient: { recipientId },
     message: { messageData },
   });
-  const qs = 'access_token=' + encodeURIComponent(require('./config/appToken'));
-  return fetch('https://graph.facebook.com/me/messages?' + qs, {
+  return fetch('https://graph.facebook.com/v2.6/me/messages?access_token=' + token, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body,
