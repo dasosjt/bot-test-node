@@ -101,6 +101,12 @@ const actions = {
 const wit = new Wit({
   accessToken: WIT_TOKEN,
   actions,
+  myAction({sessionId, context, text, entities}) {
+      console.log(`Session ${sessionId} received ${text}`);
+      console.log(`The current context is ${JSON.stringify(context)}`);
+      console.log(`Wit extracted ${JSON.stringify(entities)}`);
+      return Promise.resolve(context);
+  },
   logger: new log.Logger(log.INFO)
 });
 
