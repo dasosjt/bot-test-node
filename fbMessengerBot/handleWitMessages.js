@@ -11,8 +11,8 @@ const WIT_TOKEN = "K57OVGCGBAXTLARG6MLHCHFRAEXKII6A";
 
 const sendMessage = (id, text) => {
   const body = JSON.stringify({
-    recipient: { "id :" id },
-    message: { "text:" text },
+    recipient: { "id" : id },
+    message: { "text" : text },
   });
   const qs = token;
   return fetch('https://graph.facebook.com/me/messages?access_token=' + qs, {
