@@ -2,7 +2,7 @@
 const APP_TOKEN = require('./config/appToken');
 const fetch = require('node-fetch');
 
-const WIT_TOKEN = 'XRGPHLTWOOF55IZSLP5NIBIUP3G4TBQD';
+const WIT_TOKEN = '2NG2AYCDR7NN2OFMDA2IYEPDIL4MWN6S';
 
 let Wit = null;
 let log = null;
@@ -14,7 +14,7 @@ const sendTextMessage = (id, text) => {
     recipient: { id },
     message: { text },
   });
-  const qs = token;
+  const qs = APP_TOKEN;
   return fetch('https://graph.facebook.com/me/messages?access_token=' + qs, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
