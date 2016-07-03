@@ -11,8 +11,8 @@ const WIT_TOKEN = "K57OVGCGBAXTLARG6MLHCHFRAEXKII6A";
 
 const sendMessage = (id, text) => {
   const body = JSON.stringify({
-    recipient: { "id" : id },
-    message: { "text" : text },
+    recipient: { id },
+    message: { text },
   });
   const qs = token;
   return fetch('https://graph.facebook.com/me/messages?access_token=' + qs, {
@@ -76,7 +76,7 @@ const actions = {
       // Yay, we found our recipient!
       // Let's forward our bot response to her.
       // We return a promise to let our bot know when we're done sending
-      console.log(message);
+      message = "hi";
       return sendMessage(recipientId, message)
       .then(() => null)
       .catch((err) => {
