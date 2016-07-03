@@ -1,5 +1,5 @@
 "use strict"
-var token = require('../config/appToken');
+var token = require('/config/appToken');
 
 let Wit = null;
 let log = null;
