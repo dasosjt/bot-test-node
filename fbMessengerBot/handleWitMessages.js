@@ -9,12 +9,13 @@ log = require('node-wit').log;
 
 const WIT_TOKEN = "K57OVGCGBAXTLARG6MLHCHFRAEXKII6A";
 
-const fbMessage = (recipientId, messageData) => {
+const fbMessage = (id, text) => {
   const body = JSON.stringify({
-    recipient: { recipientId },
-    message: { messageData },
+    recipient: { id },
+    message: { text },
   });
-  return fetch('https://graph.facebook.com/v2.6/me/messages?access_token=' + token, {
+  const qs = 'access_token=' + encodeURIComponent(token);
+  return fetch('https://graph.facebook.com/me/messages?' + qs, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body,
