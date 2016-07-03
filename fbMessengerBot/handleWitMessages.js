@@ -1,6 +1,6 @@
 "use strict"
-var sendMessage = require('./fbMessage/sendMessage');
-var fbMessage = require('./fbMessage/fbMessage');
+var sendMessage = require('./fbMessage/sendMessageWit');
+
 let Wit = null;
 let log = null;
 Wit = require('node-wit').Wit;
@@ -57,7 +57,7 @@ const actions = {
       // Yay, we found our recipient!
       // Let's forward our bot response to her.
       // We return a promise to let our bot know when we're done sending
-      /*return fbMessage(recipientId, message)
+      return sendMessageWit(recipientId, message)
       .then(() => null)
       .catch((err) => {
         console.error(
@@ -66,13 +66,7 @@ const actions = {
           ':',
           err.stack || err
         );
-      });*/
-      console.log("Context before say: ",context);
-      var botReply = new fbMessage
-          .PlainText(message)
-          .compose();
-
-      sendMessage(recipientId, botReply);
+      });
     } else {
       console.error('Oops! Couldn\'t find user for session:', sessionId);
       // Giving the wheel back to our bot
