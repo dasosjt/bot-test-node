@@ -1,5 +1,6 @@
 "use strict"
-var token = require('./config/appToken');
+const token = require('./config/appToken');
+const fetch = require('node-fetch');
 
 let Wit = null;
 let log = null;
