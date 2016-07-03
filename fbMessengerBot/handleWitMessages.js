@@ -9,7 +9,7 @@ log = require('node-wit').log;
 
 const WIT_TOKEN = "K57OVGCGBAXTLARG6MLHCHFRAEXKII6A";
 
-const sendMessage = (id, text) => {
+const sendTextMessage = (id, text) => {
   const body = JSON.stringify({
     recipient: { id },
     message: { text },
@@ -76,7 +76,7 @@ const actions = {
       // Yay, we found our recipient!
       // Let's forward our bot response to her.
       // We return a promise to let our bot know when we're done sending
-      return sendMessage(recipientId, text)
+      return sendTextMessage(recipientId, text)
       .then(() => null)
       .catch((err) => {
         console.error(
