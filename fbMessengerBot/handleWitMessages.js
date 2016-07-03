@@ -1,13 +1,12 @@
 "use strict"
-const token = require('./config/appToken');
+const APP_TOKEN = require('./config/appToken');
+const WIT_TOKEN = require('./config/witToken');
 const fetch = require('node-fetch');
 
 let Wit = null;
 let log = null;
 Wit = require('node-wit').Wit;
 log = require('node-wit').log;
-
-const WIT_TOKEN = "K57OVGCGBAXTLARG6MLHCHFRAEXKII6A";
 
 const sendTextMessage = (id, text) => {
   const body = JSON.stringify({
@@ -71,6 +70,8 @@ const actions = {
   send({sessionId}, {text}) {
     // Our bot has something to say!
     // Let's retrieve the Facebook user whose session belongs to
+    console.log(context);
+    console.log(entities);
     const recipientId = sessions[sessionId].senderId;
     if (recipientId) {
       // Yay, we found our recipient!
