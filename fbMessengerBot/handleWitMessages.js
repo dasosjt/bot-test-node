@@ -1,7 +1,8 @@
 "use strict"
 const APP_TOKEN = require('./config/appToken');
-let WIT_TOKEN = require('./config/witToken');
 const fetch = require('node-fetch');
+
+const WIT_TOKEN = 'K57OVGCGBAXTLARG6MLHCHFRAEXKII6A';
 
 let Wit = null;
 let log = null;
