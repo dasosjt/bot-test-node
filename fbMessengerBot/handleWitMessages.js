@@ -68,7 +68,7 @@ const firstEntityValue = (entities, entity) => {
 
 /// Our bot actions
 const actions = {
-  send({sessionId}, {message}) {
+  send({sessionId}, {text}) {
     // Our bot has something to say!
     // Let's retrieve the Facebook user whose session belongs to
     const recipientId = sessions[sessionId].senderId;
@@ -76,7 +76,7 @@ const actions = {
       // Yay, we found our recipient!
       // Let's forward our bot response to her.
       // We return a promise to let our bot know when we're done sending
-      return sendMessage(recipientId, message)
+      return sendMessage(recipientId, text)
       .then(() => null)
       .catch((err) => {
         console.error(
