@@ -76,8 +76,7 @@ const actions = {
       // Yay, we found our recipient!
       // Let's forward our bot response to her.
       // We return a promise to let our bot know when we're done sending
-      message = "hi";
-      return sendMessage(recipientId, text)
+      return sendMessage(recipientId, message)
       .then(() => null)
       .catch((err) => {
         console.error(
