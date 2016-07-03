@@ -9,16 +9,16 @@ log = require('node-wit').log;
 
 const WIT_TOKEN = "K57OVGCGBAXTLARG6MLHCHFRAEXKII6A";
 
-const fbMessage = (id, text) => {
+const sendMessage = (id, text) => {
   const body = JSON.stringify({
     recipient: { id },
     message: { text },
   });
-  const qs = 'access_token=' + encodeURIComponent(token);
-  return fetch('https://graph.facebook.com/me/messages?' + qs, {
+  const qs = token;
+  return fetch('https://graph.facebook.com/me/messages?access_token=' + qs, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
-    bodey: body,
+    body,
   })
   .then(rsp => rsp.json())
   .then(json => {
@@ -76,7 +76,7 @@ const actions = {
       // Yay, we found our recipient!
       // Let's forward our bot response to her.
       // We return a promise to let our bot know when we're done sending
-      return fbMessage(recipientId, message)
+      return sendMessage(recipientId, message)
       .then(() => null)
       .catch((err) => {
         console.error(
@@ -106,7 +106,6 @@ const wit = new Wit({
 module.exports = function (config) {
   var senderId = config.senderId;
   var message = config.message;
-  console.log("Message before sended to Wit: ",message);
 
   // We retrieve the user's current session, or create one if it doesn't exist
   // This is needed for our bot to figure out the conversation history
