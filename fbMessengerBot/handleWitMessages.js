@@ -1,5 +1,4 @@
 "use strict"
-var sendMessage = require('./fbMessage/sendMessageWit');
 
 let Wit = null;
 let log = null;
