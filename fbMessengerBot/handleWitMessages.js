@@ -68,13 +68,12 @@ const firstEntityValue = (entities, entity) => {
 
 /// Our bot actions
 const actions = {
-  send({sessionId, context, entities}, {text}) {
+  send({sessionId, context, entities}, {text, quickreplies}) {
     // Our bot has something to say!
     // Let's retrieve the Facebook user whose session belongs to
     const recipientId = sessions[sessionId].senderId;
     console.log("Entities: ", entities);
-    console.log("Context0: ",sessions[sessionId].context);
-    console.log("Context1: ",context);
+    console.log("Context: ",sessions[sessionId].context);
     sessions[sessionId].context = context;
     if (recipientId) {
       // Yay, we found our recipient!
