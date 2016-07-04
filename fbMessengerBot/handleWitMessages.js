@@ -1,6 +1,6 @@
 "use strict"
 const fetch = require('node-fetch');
-const APP_TOKEN = require('../config/appToken');
+const APP_TOKEN = require('./config/appToken');
 
 
 const WIT_TOKEN = '2NG2AYCDR7NN2OFMDA2IYEPDIL4MWN6S';
