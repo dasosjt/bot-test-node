@@ -3,8 +3,9 @@ const fetch = require('node-fetch');
 const APP_TOKEN = require('../config/appToken');
 
 module.exports = function sendMessage(){
+  const message = null;
   function sendTextMessage(id, text, quick_replies){
-    return let message = (id, text, quick_replies) => {
+    return message = (id, text, quick_replies) => {
       if(quick_replies){
         const qr = [];
         for(let i in quick_replies){
