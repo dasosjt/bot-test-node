@@ -11,15 +11,15 @@ log = require('node-wit').log;
 
 const sendTextMessage = (id, text, quick_replies) => {
   if(quick_replies){
-    let qr = [{
-        content_type : "text",
-        title : quick_replies[0],
-        payload : "PAYLOAD_FOR_PICKING_YES"
-      },{
-        content_type : "text",
-        title : quick_replies[1],
-        payload : "PAYLOAD_FOR_PICKING_NO"
-      }];
+    const qr = [];
+    for(let i in quick_replies){
+      quick_replies[i] = quick_replies[i].toUpperCase();
+      qr.push({
+          content_type : "text",
+          title : quick_replies[i],
+          payload : "PAYLOAD_FOR_PICKING_"+quick_replies[i]
+        });
+    }
     quick_replies = qr;
   };
   const body = JSON.stringify({
@@ -87,7 +87,6 @@ const actions = {
     console.log("Entities: ", entities);
     console.log("Context: ",sessions[sessionId].context);
     console.log("QuickReplies: ", quickreplies);
-    sessions[sessionId].context = context;
     if (recipientId) {
       // Yay, we found our recipient!
       // Let's forward our bot response to her.
