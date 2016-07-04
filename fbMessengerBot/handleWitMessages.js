@@ -9,10 +9,10 @@ let log = null;
 Wit = require('node-wit').Wit;
 log = require('node-wit').log;
 
-const sendTextMessage = (id, text, quickreplies) => {
+const sendTextMessage = (id, text, quick_replies) => {
   const body = JSON.stringify({
     recipient: { id },
-    message: { text, quickreplies },
+    message: { text, quick_replies },
 
 
   });
