@@ -92,7 +92,7 @@ const actions = {
       // Yay, we found our recipient!
       // Let's forward our bot response to her.
       // We return a promise to let our bot know when we're done sending
-      return sendMessage.sendTextMessage(recipientId, text, quickreplies)
+      return sendMessage(recipientId, text, quickreplies).sendTextMessage()
       .then(() => null)
       .catch((err) => {
         console.error(

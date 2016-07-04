@@ -2,7 +2,7 @@
 const fetch = require('node-fetch');
 const APP_TOKEN = require('../config/appToken');
 
-module.exports = function sendMessage(){
+module.exports = function sendMessage(id, text, quick_replies){
   const message = null;
   function sendTextMessage(id, text, quick_replies){
     return message = (id, text, quick_replies) => {
