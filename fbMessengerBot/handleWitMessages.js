@@ -15,7 +15,7 @@ const sendTextMessage = (id, text, quick_replies) => {
       [{
         content_type : "text",
         title : quick_replies[0]
-      },{
+      }{
         content_type : "text",
         title : quick_replies[1]
       }]
