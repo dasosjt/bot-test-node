@@ -9,10 +9,12 @@ let log = null;
 Wit = require('node-wit').Wit;
 log = require('node-wit').log;
 
-const sendTextMessage = (id, text) => {
+const sendTextMessage = (id, text, quickreplies) => {
   const body = JSON.stringify({
     recipient: { id },
-    message: { text },
+    message: { text, quickreplies },
+
+
   });
   const qs = APP_TOKEN;
   return fetch('https://graph.facebook.com/me/messages?access_token=' + qs, {
@@ -80,7 +82,7 @@ const actions = {
       // Yay, we found our recipient!
       // Let's forward our bot response to her.
       // We return a promise to let our bot know when we're done sending
-      return sendTextMessage(recipientId, text)
+      return sendTextMessage(recipientId, text, quickreplies)
       .then(() => null)
       .catch((err) => {
         console.error(
