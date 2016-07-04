@@ -11,15 +11,14 @@ log = require('node-wit').log;
 
 const sendTextMessage = (id, text, quick_replies) => {
   if(quick_replies){
-    let qr = JSON.stringify({
-      [{
+    let qr = [{
         content_type : "text",
         title : quick_replies[0]
-      }{
+      },{
         content_type : "text",
         title : quick_replies[1]
-      }]
-    });
+      }];
+    quick_replies = qr;
   };
   const body = JSON.stringify({
     recipient: { id },
