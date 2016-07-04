@@ -10,11 +10,12 @@ Wit = require('node-wit').Wit;
 log = require('node-wit').log;
 
 const sendTextMessage = (id, text, quick_replies) => {
+  if(quick_replies){
+    console.log("We got a quick reply");
+  }
   const body = JSON.stringify({
     recipient: { id },
     message: { text, quick_replies },
-
-
   });
   const qs = APP_TOKEN;
   return fetch('https://graph.facebook.com/me/messages?access_token=' + qs, {
