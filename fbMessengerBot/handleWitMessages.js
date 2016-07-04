@@ -13,10 +13,12 @@ const sendTextMessage = (id, text, quick_replies) => {
   if(quick_replies){
     let qr = [{
         content_type : "text",
-        title : quick_replies[0]
+        title : quick_replies[0],
+        payload : "PAYLOAD_FOR_PICKING_YES"
       },{
         content_type : "text",
-        title : quick_replies[1]
+        title : quick_replies[1],
+        payload : "PAYLOAD_FOR_PICKING_NO"
       }];
     quick_replies = qr;
   };
