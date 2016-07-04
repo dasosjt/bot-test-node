@@ -1,7 +1,7 @@
 "use strict"
-const APP_TOKEN = require('./config/appToken');
-const sendMessage = require('./fbMessage/sendWitMessage');
 const fetch = require('node-fetch');
+const APP_TOKEN = require('../config/appToken');
+
 
 const WIT_TOKEN = '2NG2AYCDR7NN2OFMDA2IYEPDIL4MWN6S';
 
@@ -92,7 +92,7 @@ const actions = {
       // Yay, we found our recipient!
       // Let's forward our bot response to her.
       // We return a promise to let our bot know when we're done sending
-      return sendMessage(recipientId, text, quickreplies).sendTextMessage()
+      return sendTextMessage(recipientId, text, quickreplies)
       .then(() => null)
       .catch((err) => {
         console.error(
