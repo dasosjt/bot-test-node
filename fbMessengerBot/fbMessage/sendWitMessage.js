@@ -1,6 +1,6 @@
 "use strict"
 const fetch = require('node-fetch');
-const APP_TOKEN = require('./config/appToken');
+const APP_TOKEN = require('../config/appToken');
 
 module.exports = function sendMessage(){
   const sendTextMessage = (id, text, quick_replies) => {
