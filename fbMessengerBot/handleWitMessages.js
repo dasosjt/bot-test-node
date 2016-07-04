@@ -74,6 +74,7 @@ const actions = {
     const recipientId = sessions[sessionId].senderId;
     console.log("Entities: ", entities);
     console.log("Context: ",sessions[sessionId].context);
+    console.log("QuickReplies: ", quickreplies);
     sessions[sessionId].context = context;
     if (recipientId) {
       // Yay, we found our recipient!
