@@ -13,7 +13,7 @@ const sendTextMessage = (id, text, quick_replies) => {
   if(quick_replies){
     const qr = [];
     for(let i in quick_replies){
-      quick_replies_0 = quick_replies[i].toUpperCase();
+      let quick_replies_0 = quick_replies[i].toUpperCase();
       qr.push({
           content_type : "text",
           title : quick_replies[i],
