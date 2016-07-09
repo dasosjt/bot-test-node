@@ -1,6 +1,7 @@
 "use strict"
 const textMessage = require('./fbMessage/textMessage');
-const qrMessage = require('./fbMessage/qrMessage');
+const qrMessage = require('./fbMessage/quickRepliesMessage');
+const attMessage = require('./fbMessage/attachmentMessage');
 
 
 const WIT_TOKEN = '2NG2AYCDR7NN2OFMDA2IYEPDIL4MWN6S';

@@ -1,4 +1,4 @@
-# fb-messenger-bot
+# NODE JS FB
 
 Super lightweight Node.js / Express application that serves webhook for Facebook Messenger API.
 
