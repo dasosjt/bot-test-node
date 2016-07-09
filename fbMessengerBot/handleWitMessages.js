@@ -1,6 +1,4 @@
 "use strict"
-const fetch = require('node-fetch');
-const APP_TOKEN = require('./config/appToken');
 const textMessage = require('./fbMessage/textMessage');
 const qrMessage = require('./fbMessage/qrMessage');
 
