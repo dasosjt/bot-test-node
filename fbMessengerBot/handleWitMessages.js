@@ -2,7 +2,7 @@
 const fetch = require('node-fetch');
 const APP_TOKEN = require('./config/appToken');
 const textMessage = require('./fbMessage/textMessage');
-const qrMessage = require('./fbMessage/textMessage');
+const qrMessage = require('./fbMessage/qrMessage');
 
 
 const WIT_TOKEN = '2NG2AYCDR7NN2OFMDA2IYEPDIL4MWN6S';
