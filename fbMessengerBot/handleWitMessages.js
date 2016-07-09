@@ -2,6 +2,7 @@
 const fetch = require('node-fetch');
 const APP_TOKEN = require('./config/appToken');
 const textMessage = require('./fbMessage/textMessage');
+const qrMessage = require('./fbMessage/textMessage');
 
 
 const WIT_TOKEN = '2NG2AYCDR7NN2OFMDA2IYEPDIL4MWN6S';
@@ -10,38 +11,6 @@ let Wit = null;
 let log = null;
 Wit = require('node-wit').Wit;
 log = require('node-wit').log;
-
-const sendTextMessage = (id, text, quick_replies) => {
-  if(quick_replies){
-    const qr = [];
-    for(let i in quick_replies){
-      let quick_replies_0 = quick_replies[i].toUpperCase();
-      qr.push({
-          content_type : "text",
-          title : quick_replies[i],
-          payload : "PAYLOAD_FOR_PICKING_"+quick_replies_0
-        });
-    }
-    quick_replies = qr;
-  };
-  const body = JSON.stringify({
-    recipient: { id },
-    message: { text, quick_replies },
-  });
-  const qs = APP_TOKEN;
-  return fetch('https://graph.facebook.com/me/messages?access_token=' + qs, {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body,
-  })
-  .then(rsp => rsp.json())
-  .then(json => {
-    if (json.error && json.error.message) {
-      throw new Error(json.error.message);
-    }
-    return json;
-  });
-};
 
 // This will contain all user sessions.
 // Each session has an entry:
@@ -93,6 +62,18 @@ const actions = {
       // Yay, we found our recipient!
       // Let's forward our bot response to her.
       // We return a promise to let our bot know when we're done sending
+      if(quickreplies){
+        return qrMessage(recipientId, text, quickreplies)
+        .then(() => null)
+        .catch((err) => {
+          console.error(
+            'Oops! An error occurred while forwarding the response to',
+            recipientId,
+            ':',
+            err.stack || err
+          );
+        });
+      }
       return textMessage(recipientId, text)
       .then(() => null)
       .catch((err) => {
