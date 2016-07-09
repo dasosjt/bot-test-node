@@ -63,6 +63,7 @@ const actions = {
       // Let's forward our bot response to her.
       // We return a promise to let our bot know when we're done sending
       if(quickreplies){
+        console.log("Is in Quick Replies");
         return qrMessage(recipientId, text, quickreplies)
         .then(() => null)
         .catch((err) => {
@@ -73,16 +74,17 @@ const actions = {
             err.stack || err
           );
         });
+      } else {
+        return textMessage(recipientId, text)
+        .then(() => null)
+        .catch((err) => {
+          console.error(
+            'Oops! An error occurred while forwarding the response to',
+            recipientId,
+            ':',
+            err.stack || err
+          );
       }
-      return textMessage(recipientId, text)
-      .then(() => null)
-      .catch((err) => {
-        console.error(
-          'Oops! An error occurred while forwarding the response to',
-          recipientId,
-          ':',
-          err.stack || err
-        );
       });
     } else {
       console.error('Oops! Couldn\'t find user for session:', sessionId);
