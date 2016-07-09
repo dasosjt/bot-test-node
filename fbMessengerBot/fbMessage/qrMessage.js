@@ -3,8 +3,7 @@ const fetch = require('node-fetch');
 const APP_TOKEN = require('../config/appToken');
 
 module.exports = (id, text, quick_replies) => {
-  console.log("quick_replies");
-  let qr = [];
+  const qr = [];
   for(let i in quick_replies){
     let quick_replies_0 = quick_replies[i].toUpperCase();
     qr.push({
