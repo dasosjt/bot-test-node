@@ -13,6 +13,7 @@ module.exports = (id, text, quick_replies) => {
       });
   };
 
+  console.log(qr);
   quick_replies = qr;
 
   const body = JSON.stringify({
