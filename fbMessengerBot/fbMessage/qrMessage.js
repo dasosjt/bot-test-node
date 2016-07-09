@@ -11,11 +11,9 @@ module.exports = (id, text, quick_replies) => {
         title : quick_replies[i],
         payload : "PAYLOAD_FOR_PICKING_"+quick_replies_0
       });
-  }
+  };
 
   quick_replies = qr;
-
-  console.log(quick_replies);
 
   const body = JSON.stringify({
     recipient: { id },
