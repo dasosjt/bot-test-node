@@ -94,7 +94,8 @@ const actions = {
   // You should implement your custom actions here
   // See https://wit.ai/docs/quickstart
   getMenu({context, entities, sessionId}){
-    console.log(sessionId);
+    const recipientId = sessions[sessionId].senderId;
+    console.log("senderId: ", recipientId);
     return new Promise(function(resolve, reject){
       context.menu = "True";
       return resolve(context);
