@@ -2,7 +2,7 @@
 const fetch = require('node-fetch');
 const APP_TOKEN = require('../config/appToken');
 
-module.exports = (attachment) =>{
+module.exports = (id, attachment) =>{
   const body = JSON.stringify({
     recipient: { id },
     message: { attachment },
