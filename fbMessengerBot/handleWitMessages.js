@@ -116,7 +116,7 @@ const actions = {
                 "title":"Buy Item"
               },
               {
-                "type":"text",
+                "type":"postback",
                 "title":"Bookmark Item",
                 "payload":"USER_DEFINED_PAYLOAD_FOR_ITEM100"
               }
