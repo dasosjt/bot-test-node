@@ -93,13 +93,19 @@ const actions = {
   },
   // You should implement your custom actions here
   // See https://wit.ai/docs/quickstart
-  getMenu({context, entities, sessionId}){
+  showMenu({context, entities, sessionId}){
     const recipientId = sessions[sessionId].senderId;
     console.log("senderId: ", recipientId);
-    return new Promise(function(resolve, reject){
-      context.menu = "True";
-      return resolve(context);
-    })
+    return textMessage(recipientId, 'Hi, I´m the Menu')
+    .then(() => null)
+    .catch((err) => {
+      console.error(
+        'Oops! An error occurred while forwarding the response to',
+        recipientId,
+        ':',
+        err.stack || err
+      );
+    });
   }
 };
 
