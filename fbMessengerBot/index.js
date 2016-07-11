@@ -5,11 +5,9 @@ var handleOptins = require('./handleOptins');
 module.exports = function (req, res) {
   console.log("Index");
 
-  console.log(req.body.entry[0]);
-
   messaging_events = req.body.entry[0].messaging;
 
-  console.log(messaging_events);
+  console.log(messaging_events.quick_reply);
 
   for (i = 0; i < messaging_events.length; i++) {
 
