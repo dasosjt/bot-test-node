@@ -95,7 +95,6 @@ const actions = {
   // See https://wit.ai/docs/quickstart
   showMenu({context, entities, sessionId}){
     const recipientId = sessions[sessionId].senderId;
-    console.log(typeof context);
     let test = {
       "type":"template",
       "payload":{
@@ -183,5 +182,5 @@ module.exports = function (config) {
 }
 
 module.exports.setContext = function(sessionId, keyContext, newValue){
-  console.log(typeof sessions[sessionId].context);
+  
 }
