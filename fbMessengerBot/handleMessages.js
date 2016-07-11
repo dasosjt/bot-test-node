@@ -8,7 +8,7 @@ var handleWitMessages = require('./handleWitMessages');
 var debugMode = require('./config/debugMode');
 
 module.exports = function (senderId, message) {
-
+    console.log("HandleMessages");
     var messageText = message.text;
 
     if (debugMode.getDebugMode(senderId)) {
