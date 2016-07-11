@@ -118,7 +118,7 @@ const actions = {
               {
                 "type":"postback",
                 "title":"Bookmark Item",
-                "payload":"USER_DEFINED_PAYLOAD_FOR_ITEM100"
+                "payload":"PAYLOAD_FOR_PICKING_00"
               }
             ]
           },
@@ -140,7 +140,7 @@ const actions = {
               {
                 "type":"postback",
                 "title":"Bookmark Item",
-                "payload":"USER_DEFINED_PAYLOAD_FOR_ITEM101"
+                "payload":"PAYLOAD_FOR_PICKING_01"
               }
             ]
           }
