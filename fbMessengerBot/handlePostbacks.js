@@ -1,4 +1,6 @@
-var sendMessage = require('./fbMessage/sendMessage');
+"use strict"
+const sendMessage = require('./fbMessage/sendMessage');
+const HandleWitMessages = require('./HandleWitMessages');
 
 
 module.exports = function (senderId, postback) {
@@ -7,6 +9,8 @@ module.exports = function (senderId, postback) {
     sendMessage(senderId, {
         text : "Postback from " + senderId + ": " + JSON.stringify(postback)
     });
+
+    HandleWitMessages.setContext(senderId, "forecast", "sunny");
 
 
 

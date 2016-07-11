@@ -180,3 +180,7 @@ module.exports = function (config) {
     console.error('Oops! Got an error from Wit: ', err.stack || err);
   })
 }
+
+module.exports.setContext = function(sessionId, keyContext, newValue){
+  sessions[sessionId].context[keyContext] = newValue;
+}
