@@ -182,5 +182,5 @@ module.exports = function (config) {
 }
 
 module.exports.setContext = function(sessionId, keyContext, newValue){
-  sessions[sessionId].context[keyContext] = newValue;
+  console.log(typeof sessions[sessionId].context);
 }
