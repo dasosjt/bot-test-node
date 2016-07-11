@@ -5,49 +5,38 @@ var handleOptins = require('./handleOptins');
 module.exports = function (req, res) {
   console.log("Index");
 
-  messaging_events = req.body.entry[0].messaging;
+  var data = req.body;
 
-  for (i = 0; i < messaging_events.length; i++) {
+  // Make sure this is a page subscription
+  if (data.object == 'page') {
+    // Iterate over each entry
+    // There may be multiple if batched
+    data.entry.forEach(function(pageEntry) {
+      var pageID = pageEntry.id;
+      var timeOfEvent = pageEntry.time;
 
-    event = req.body.entry[0].messaging[i];
-    sender = event.sender.id;
-    recipient = event.recipient.id;
+      // Iterate over each messaging event
+      pageEntry.messaging.forEach(function(messagingEvent) {
+        if (messagingEvent.optin) {
+          //receivedAuthentication(messagingEvent);
+        } else if (messagingEvent.message) {
+          handleMessages(messagingEvent.sender.id, messagingEvent.message);
+        } else if (messagingEvent.delivery) {
+          //receivedDeliveryConfirmation(messagingEvent);
+        } else if (messagingEvent.postback) {
+          handlePostbacks(messagingEvent.sender.id, messagingEvent.postback.payload);
+        } else if (messagingEvent.read) {
+          //receivedMessageRead(messagingEvent);
+        } else {
+          console.log("Webhook received unknown messagingEvent: ", messagingEvent);
+        }
+      });
+    });
 
-    console.log(event.message.attachment);
-
-    //messages
-    if (event.message && event.message.text) {
-
-        handleMessages(sender, event.message);
-
-    }
-
-
-    //messaging_postbacks
-    if (event.postback) {
-
-        handlePostbacks(sender, event.postback);
-
-    }
-
-    //messaging_optins
-    if (event.optin && event.optin.ref) {
-
-        handleOptins(sender, event.optin);
-
-    }
-
-
-    //message_deliveries
-    if (event.delivery && event.delivery.watermark) {
-
-
-
-    }
-
-
-  }
-
+  // Assume all went well.
+  //
+  // You must send back a 200, within 20 seconds, to let us know you've
+  // successfully received the callback. Otherwise, the request will time out.
   res.sendStatus(200);
 
 };
