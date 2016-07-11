@@ -99,52 +99,29 @@ const actions = {
       "type":"template",
       "payload":{
         "template_type":"generic",
-        "elements":[
-          {
-            "title":"Classic White T-Shirt",
-            "image_url":"http://petersapparel.parseapp.com/img/item100-thumb.png",
-            "subtitle":"Soft white cotton t-shirt is back in style",
-            "buttons":[
-              {
-                "type":"web_url",
-                "url":"https://petersapparel.parseapp.com/view_item?item_id=100",
-                "title":"View Item"
-              },
-              {
-                "type":"web_url",
-                "url":"https://petersapparel.parseapp.com/buy_item?item_id=100",
-                "title":"Buy Item"
-              },
-              {
-                "type":"postback",
-                "title":"Bookmark Item",
-                "payload":"PAYLOAD_FOR_PICKING_00"
-              }
-            ]
-          },
-          {
-            "title":"Classic Grey T-Shirt",
-            "image_url":"http://petersapparel.parseapp.com/img/item101-thumb.png",
-            "subtitle":"Soft gray cotton t-shirt is back in style",
-            "buttons":[
-              {
-                "type":"web_url",
-                "url":"https://petersapparel.parseapp.com/view_item?item_id=101",
-                "title":"View Item"
-              },
-              {
-                "type":"web_url",
-                "url":"https://petersapparel.parseapp.com/buy_item?item_id=101",
-                "title":"Buy Item"
-              },
-              {
-                "type":"postback",
-                "title":"Bookmark Item",
-                "payload":"PAYLOAD_FOR_PICKING_01"
-              }
-            ]
-          }
-        ]
+        "elements": [{
+            "title": "First card",
+            "subtitle": "Element #1 of an hscroll",
+            "image_url": "http://messengerdemo.parseapp.com/img/rift.png",
+            "buttons": [{
+                "type": "web_url",
+                "url": "https://www.messenger.com",
+                "title": "web url"
+            }, {
+                "type": "postback",
+                "title": "Postback",
+                "payload": "Payload for first element in a generic bubble",
+            }],
+        }, {
+            "title": "Second card",
+            "subtitle": "Element #2 of an hscroll",
+            "image_url": "http://messengerdemo.parseapp.com/img/gearvr.png",
+            "buttons": [{
+                "type": "postback",
+                "title": "Postback",
+                "payload": "Payload for second element in a generic bubble",
+            }],
+        }]
       }
     }
     console.log("Executing showMenu()");

@@ -25,7 +25,7 @@ module.exports = function (req, res) {
 
 
     //messaging_postbacks
-    if (event.payload) {
+    if (event.postback) {
 
         handlePostbacks(sender, event.postback);
 
