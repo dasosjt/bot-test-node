@@ -1,6 +1,6 @@
 "use strict"
 const sendMessage = require('./fbMessage/sendMessage');
-const HandleWitMessages = require('./HandleWitMessages');
+const HandleWitMessages = require('HandleWitMessages');
 
 
 module.exports = function (senderId, postback) {
