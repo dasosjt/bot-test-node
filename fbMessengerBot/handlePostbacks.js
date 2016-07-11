@@ -2,7 +2,7 @@ var sendMessage = require('./fbMessage/sendMessage');
 
 
 module.exports = function (senderId, postback) {
-    console.log("HandelPostBacks");
+    console.log("HandlePostBacks");
 
     sendMessage(senderId, {
         text : "Postback from " + senderId + ": " + JSON.stringify(postback)

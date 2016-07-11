@@ -3,9 +3,11 @@ var handlePostbacks = require('./handlePostbacks');
 var handleOptins = require('./handleOptins');
 
 module.exports = function (req, res) {
-  console.log("Index.js");
+  console.log("Index");
 
   messaging_events = req.body.entry[0].messaging;
+
+  console.log(messaging_events);
 
   for (i = 0; i < messaging_events.length; i++) {
 
