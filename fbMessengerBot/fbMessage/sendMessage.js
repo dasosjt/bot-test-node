@@ -15,7 +15,7 @@ module.exports = function sendMessage(recipientId, messageData, notificationType
         method: 'POST',
         json: {
             recipient: {
-                id: sender
+                id: recipientId
             },
             message: messageData,
             notification_type: notificationType
