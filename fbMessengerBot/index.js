@@ -6,7 +6,7 @@ module.exports = function (req, res) {
   console.log("Index");
 
   var data = req.body;
-  console.log(data);
+
   // Make sure this is a page subscription
   if (data.object == 'page') {
     // Iterate over each entry
@@ -14,9 +14,9 @@ module.exports = function (req, res) {
     data.entry.forEach(function(pageEntry) {
       var pageID = pageEntry.id;
       var timeOfEvent = pageEntry.time;
-
       // Iterate over each messaging event
       pageEntry.messaging.forEach(function(messagingEvent) {
+        console.log(messagingEvent);
         if (messagingEvent.optin) {
           //receivedAuthentication(messagingEvent);
         } else if (messagingEvent.message) {
@@ -24,7 +24,7 @@ module.exports = function (req, res) {
         } else if (messagingEvent.delivery) {
           //receivedDeliveryConfirmation(messagingEvent);
         } else if (messagingEvent.postback) {
-          handlePostbacks(messagingEvent.sender.id, messagingEvent.postback.payload);
+          handlePostbacks(messagingEvent.sender.id, messagingEvent.postback);
         } else if (messagingEvent.read) {
           //receivedMessageRead(messagingEvent);
         } else {
