@@ -13,7 +13,7 @@ module.exports = function (req, res) {
     sender = event.sender.id;
     recipient = event.recipient.id;
 
-    console.log(event.postback);
+    console.log(event.sender.id);
 
     //messages
     if (event.message && event.message.text) {
