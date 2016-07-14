@@ -140,35 +140,7 @@ const actions = {
     console.log("Executing getProperty()");
     return new Promise(function(resolve, reject) {
       if(entities.tipo_propiedad && entities.dimension && entities.zona){
-        context.propiedad = {
-          "type":"template",
-          "payload":{
-            "template_type":"generic",
-            "elements": [{
-                "title": "First card",
-                "subtitle": "Element #1 of an hscroll",
-                "image_url": "http://messengerdemo.parseapp.com/img/rift.png",
-                "buttons": [{
-                    "type": "web_url",
-                    "url": "https://www.messenger.com",
-                    "title": "web url"
-                }, {
-                    "type": "postback",
-                    "title": "Postback",
-                    "payload": "Payload for first element in a generic bubble",
-                }],
-            }, {
-                "title": "Second card",
-                "subtitle": "Element #2 of an hscroll",
-                "image_url": "http://messengerdemo.parseapp.com/img/gearvr.png",
-                "buttons": [{
-                    "type": "postback",
-                    "title": "Postback",
-                    "payload": "Payload for second element in a generic bubble",
-                }],
-            }]
-          }
-        }
+        context.propiedad = 'Hi im the property you are looking for..'
       }
       return resolve(context);
     }
@@ -176,7 +148,7 @@ const actions = {
   showProperty({context, entities, sessionId}){
     console.log("Executing showProperty()");
     const recipientId = sessions[sessionId].senderId;
-    return attMessage(recipientId, context.propiedad)
+    return textMessage(recipientId, context.propiedad)
     .then(() => null)
     .catch((err) => {
       console.error(
