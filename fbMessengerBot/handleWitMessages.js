@@ -139,7 +139,7 @@ const actions = {
   getProperty({context, entities, sessionId}){
     console.log("Executing getProperty()");
     return new Promise(function(resolve, reject) {
-      if(entities.tipo_propiedad && entities.dimension && entities.zona){
+      if((entities.tipo_propiedad && entities.dimension && entities.zona) || (entities.tipo_propiedad && context.dimension && context.zona)){
         context.propiedad = 'Hi im the property you are looking for..'
         delete context.no_tipo_propiedad;
       } else if (entities.dimension && entities.zona){
