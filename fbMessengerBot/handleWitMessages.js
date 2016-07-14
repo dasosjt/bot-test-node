@@ -144,6 +144,8 @@ const actions = {
         delete context.no_tipo_propiedad;
       } else if (entities.dimension && entities.zona){
         context.no_tipo_propiedad = true;
+        context.dimension = entities.dimension;
+        context.zona = entities.zona;
         delete context.propiedad;
       }
       return resolve(context);
