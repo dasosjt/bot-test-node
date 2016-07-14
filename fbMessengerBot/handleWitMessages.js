@@ -148,6 +148,7 @@ const actions = {
         context.zona = entities.zona;
         delete context.propiedad;
       }
+      console.log(context);
       return resolve(context);
     });
   },
