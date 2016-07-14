@@ -135,6 +135,57 @@ const actions = {
         err.stack || err
       );
     });
+  },
+  getProperty({context, entities, sessionId}){
+    console.log("Executing getProperty()");
+    return new Promise(function(resolve, reject) {
+      if(entities.tipo_propiedad && entities.dimension && entities.zona){
+        context.propiedad = {
+          "type":"template",
+          "payload":{
+            "template_type":"generic",
+            "elements": [{
+                "title": "First card",
+                "subtitle": "Element #1 of an hscroll",
+                "image_url": "http://messengerdemo.parseapp.com/img/rift.png",
+                "buttons": [{
+                    "type": "web_url",
+                    "url": "https://www.messenger.com",
+                    "title": "web url"
+                }, {
+                    "type": "postback",
+                    "title": "Postback",
+                    "payload": "Payload for first element in a generic bubble",
+                }],
+            }, {
+                "title": "Second card",
+                "subtitle": "Element #2 of an hscroll",
+                "image_url": "http://messengerdemo.parseapp.com/img/gearvr.png",
+                "buttons": [{
+                    "type": "postback",
+                    "title": "Postback",
+                    "payload": "Payload for second element in a generic bubble",
+                }],
+            }]
+          }
+        }
+      }
+      return resolve(context);
+    }
+  },
+  showProperty({context, entities, sessionId}){
+    console.log("Executing showProperty()");
+    const recipientId = sessions[sessionId].senderId;
+    return attMessage(recipientId, context.propiedad)
+    .then(() => null)
+    .catch((err) => {
+      console.error(
+        'Oops! An error occurred while forwarding the response to',
+        recipientId,
+        ':',
+        err.stack || err
+      );
+    });
   }
 };
 
@@ -179,8 +230,4 @@ module.exports = function (config) {
   .catch((err) => {
     console.error('Oops! Got an error from Wit: ', err.stack || err);
   })
-}
-
-module.exports.setContext = function(sessionId, keyContext, newValue){
-  
 }
