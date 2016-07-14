@@ -141,6 +141,10 @@ const actions = {
     return new Promise(function(resolve, reject) {
       if(entities.tipo_propiedad && entities.dimension && entities.zona){
         context.propiedad = 'Hi im the property you are looking for..'
+        delete context.no_tipo_propiedad;
+      } else if (entities.dimension && entities.zona){
+        context.no_tipo_propiedad = true;
+        delete context.propiedad;
       }
       return resolve(context);
     });
