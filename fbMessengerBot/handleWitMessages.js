@@ -143,7 +143,7 @@ const actions = {
         context.propiedad = 'Hi im the property you are looking for..'
       }
       return resolve(context);
-    }
+    });
   },
   showProperty({context, entities, sessionId}){
     console.log("Executing showProperty()");
