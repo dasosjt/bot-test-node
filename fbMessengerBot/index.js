@@ -3,7 +3,6 @@ var handlePostbacks = require('./handlePostbacks');
 var handleOptins = require('./handleOptins');
 
 module.exports = function (req, res) {
-  console.log("Index");
 
   var data = req.body;
 
@@ -16,7 +15,6 @@ module.exports = function (req, res) {
       var timeOfEvent = pageEntry.time;
       // Iterate over each messaging event
       pageEntry.messaging.forEach(function(messagingEvent) {
-        console.log(messagingEvent);
         if (messagingEvent.optin) {
           //receivedAuthentication(messagingEvent);
         } else if (messagingEvent.message) {

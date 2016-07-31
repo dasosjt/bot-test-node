@@ -178,7 +178,6 @@ const wit = new Wit({
 module.exports = function (config) {
   var senderId = config.senderId;
   var message = config.message;
-  console.log("HandleWitMessages");
 
   // We retrieve the user's current session, or create one if it doesn't exist
   // This is needed for our bot to figure out the conversation history
