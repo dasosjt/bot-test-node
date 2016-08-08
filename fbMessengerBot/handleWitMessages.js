@@ -115,6 +115,14 @@ const actions = {
       }
     });
   },
+  borrar_context({context}){
+    console.log("Executing borrar_context()");
+    return new Promise(function(resolve, reject){
+      context.done = true;
+      console.log(context);
+      return resolve(context);
+    });
+  }
 };
 
 // Setting up our bot
