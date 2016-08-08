@@ -102,11 +102,11 @@ const actions = {
         context.construccion = construccion;
         context.numero_zona = numero_zona;
         delete context.no_construccion;
-      } else if(construccion) {
+      } else if(construccion && (!numero_zona)) {
         context.no_construccion = true;
         context.construccion = construccion;
         delete context.numero_zona;
-      } else if(numero_zona){
+      } else if(numero_zona && (!construccion)){
         context.no_construccion = true;
         context.construccion = numero_zona;
         delete context.construccion;
