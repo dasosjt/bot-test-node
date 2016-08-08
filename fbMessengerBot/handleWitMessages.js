@@ -98,13 +98,18 @@ const actions = {
     return new Promise(function(resolve, reject) {
       let construccion = firstEntityValue(entities, "construccion");
       let numero_zona = firstEntityValue(entities, "Zona");
-      if((construccion || context.construccion) && (context.numero_zona || numero_zona)){
+      if (construccion && numero_zona) {
         context.construccion = construccion;
         context.numero_zona = numero_zona;
-      }else{
-        delete context.construccion;
-        delete context.numero_zona;
+        delete context.no_construccion;
+      } else if(construccion) {
         context.no_construccion = true;
+        context.construccion = construccion;
+        delete context.numero_zona;
+      } else if(numero_zona){
+        context.no_construccion = true;
+        context.construccion = numero_zona;
+        delete context.construccion;
       }
       console.log(context);
       return resolve(context);
