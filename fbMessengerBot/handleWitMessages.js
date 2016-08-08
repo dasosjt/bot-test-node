@@ -96,9 +96,12 @@ const actions = {
   buscar_construccion({context, entities, sessionId}){
     console.log("Executing buscar-construccion()");
     return new Promise(function(resolve, reject) {
-      context.construccion = firstEntityValue(entities, "construccion");
-      context.zona = firstEntityValue(entities, "zona");
-      context.numero_zona = firstEntityValue(entities, "Zona");
+      if(entities.construccion && entities.zona && entities.Zona){
+        context.construccion = firstEntityValue(entities, "construccion");
+        context.zona = firstEntityValue(entities, "zona");
+        context.numero_zona = firstEntityValue(entities, "Zona");
+      }
+
       console.log(context);
       return resolve(context);
     });
