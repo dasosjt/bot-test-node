@@ -100,9 +100,13 @@ const actions = {
       let numero_zona = firstEntityValue(entities, "Zona");
       if(construccion){
         context.construccion = construccion;
+      }else{
+        context.construccion.delete();
       }
       if(numero_zona){
         context.numero_zona = numero_zona;
+      }else{
+        context.numero_zona.delete();
       }
       console.log(context);
       return resolve(context);
