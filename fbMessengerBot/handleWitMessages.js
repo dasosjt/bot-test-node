@@ -93,7 +93,7 @@ const actions = {
   },
   // You should implement your custom actions here
   // See https://wit.ai/docs/quickstart
-  buscar-construccion({context, entities, sessionId}){
+  buscar_construccion({context, entities, sessionId}){
     console.log("Executing buscar-construccion()");
     return new Promise(function(resolve, reject) {
       context.construccion = firstEntityValue(entities, "construccion");
