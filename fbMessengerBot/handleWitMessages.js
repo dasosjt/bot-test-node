@@ -97,11 +97,10 @@ const actions = {
     console.log("Executing buscar-construccion()");
     return new Promise(function(resolve, reject) {
       let construccion = firstEntityValue(entities, "construccion");
-      let numero_zona = firstEntityValue(entities, "Zona");
+      let numero_zona = firstEntityValue(entities, "numero_zona");
       if (construccion && numero_zona) {
         context.construccion = construccion;
         context.numero_zona = numero_zona;
-        delete context.no_construccion;
         delete context.no_zona;
         console.log(context);
         return resolve(context);
@@ -109,14 +108,6 @@ const actions = {
         context.no_zona = true;
         context.construccion = construccion;
         delete context.numero_zona;
-        delete context.no_construccion;
-        console.log(context);
-        return resolve(context);
-      } else if(numero_zona && (!construccion)){
-        context.no_construccion = true;
-        context.numero_zona = numero_zona;
-        delete context.construccion;
-        delete context.no_zona;
         console.log(context);
         return resolve(context);
       }
