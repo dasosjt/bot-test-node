@@ -93,79 +93,16 @@ const actions = {
   },
   // You should implement your custom actions here
   // See https://wit.ai/docs/quickstart
-  showMenu({context, entities, sessionId}){
-    const recipientId = sessions[sessionId].senderId;
-    let test = {
-      "type":"template",
-      "payload":{
-        "template_type":"generic",
-        "elements": [{
-            "title": "First card",
-            "subtitle": "Element #1 of an hscroll",
-            "image_url": "http://messengerdemo.parseapp.com/img/rift.png",
-            "buttons": [{
-                "type": "web_url",
-                "url": "https://www.messenger.com",
-                "title": "web url"
-            }, {
-                "type": "postback",
-                "title": "Postback",
-                "payload": "Payload for first element in a generic bubble",
-            }],
-        }, {
-            "title": "Second card",
-            "subtitle": "Element #2 of an hscroll",
-            "image_url": "http://messengerdemo.parseapp.com/img/gearvr.png",
-            "buttons": [{
-                "type": "postback",
-                "title": "Postback",
-                "payload": "Payload for second element in a generic bubble",
-            }],
-        }]
-      }
-    }
-    console.log("Executing showMenu()");
-    return attMessage(recipientId, test)
-    .then(() => null)
-    .catch((err) => {
-      console.error(
-        'Oops! An error occurred while forwarding the response to',
-        recipientId,
-        ':',
-        err.stack || err
-      );
-    });
-  },
-  getProperty({context, entities, sessionId}){
-    console.log("Executing getProperty()");
+  buscar-construccion({context, entities, sessionId}){
+    console.log("Executing buscar-construccion()");
     return new Promise(function(resolve, reject) {
-      if((entities.tipo_propiedad && entities.dimension && entities.zona) || (entities.tipo_propiedad && context.dimension && context.zona)){
-        context.propiedad = 'Hi im the property you are looking for..'
-        delete context.no_tipo_propiedad;
-      } else if (entities.dimension && entities.zona){
-        context.no_tipo_propiedad = true;
-        context.dimension = entities.dimension;
-        context.zona = entities.zona;
-        delete context.propiedad;
-      }
+      context.construccion = firstEntityValue(entities, "construccion");
+      context.zona = firstEntityValue(entities, "zona");
+      context.numero_zona = firstEntityValue(entities, "number");
       console.log(context);
       return resolve(context);
     });
   },
-  showProperty({context, entities, sessionId}){
-    console.log("Executing showProperty()");
-    const recipientId = sessions[sessionId].senderId;
-    return textMessage(recipientId, context.propiedad)
-    .then(() => null)
-    .catch((err) => {
-      console.error(
-        'Oops! An error occurred while forwarding the response to',
-        recipientId,
-        ':',
-        err.stack || err
-      );
-    });
-  }
 };
 
 // Setting up our bot
