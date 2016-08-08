@@ -96,7 +96,7 @@ const actions = {
   buscar_construccion({context, entities, sessionId}){
     console.log("Executing buscar-construccion()");
     return new Promise(function(resolve, reject) {
-      let construccion = firstEntityValue(entities, "construccion");
+      let construccion = firstEntityValue(entities, "propiedad");
       let numero_zona = firstEntityValue(entities, "zona");
       console.log("Entities", entities);
       console.log("Construccion", construccion);
