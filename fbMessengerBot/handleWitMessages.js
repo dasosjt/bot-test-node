@@ -101,14 +101,12 @@ const actions = {
       if(construccion){
         context.construccion = construccion;
       }else{
-        context.construccion = construccion;
-        context.construccion.delete();
+        delete context.construccion;
       }
       if(numero_zona){
         context.numero_zona = numero_zona;
       }else{
-        context.numero_zona = numero_zona;
-        context.numero_zona.delete();
+        delete context.numero_zona;
       }
       console.log(context);
       return resolve(context);
