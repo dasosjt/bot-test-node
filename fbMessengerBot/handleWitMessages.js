@@ -102,10 +102,8 @@ const actions = {
       console.log("Context Construccion", context.construccion);
       console.log("Numero de Zona", numero_zona);
       console.log("Context Numero de Zona", context.numero_zona);
-      if ((construccion || context.construccion) && (numero_zona || context.numero_zona)) {
-        if(!context.construccion){
-          context.construccion = construccion;
-        }
+      if ((construccion || context.construccion) && (numero_zona || context.numero_zona)) {        
+        context.construccion = construccion;
         context.numero_zona = numero_zona;
         delete context.no_zona;
         console.log(context);
