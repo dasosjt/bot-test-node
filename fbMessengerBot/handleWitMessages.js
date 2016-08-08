@@ -97,24 +97,24 @@ const actions = {
     console.log("Executing buscar-construccion()");
     return new Promise(function(resolve, reject) {
       let construccion = firstEntityValue(entities, "propiedad");
-      let numero_zona = firstEntityValue(entities, "zona");
+      let zona = firstEntityValue(entities, "zona");
       console.log("Entities", entities);
       console.log("Construccion", construccion);
       console.log("Context Construccion", context.construccion);
-      console.log("Numero de Zona", numero_zona);
-      console.log("Context Numero de Zona", context.numero_zona);
-      if ((construccion || context.construccion) && (numero_zona || context.numero_zona)) {
+      console.log("Numero de Zona", zona);
+      console.log("Context Numero de Zona", context.zona);
+      if ((construccion || context.construccion) && (zona || context.zona)) {
         if(!context.construccion){
           context.construccion = construccion;
         }
-        context.numero_zona = numero_zona;
-        delete context.no_zona;
+        context.zona = zona;
+        delete context.zona;
         console.log(context);
         return resolve(context);
-      } else if((construccion || context.construccion) && (!numero_zona)) {
+      } else if((construccion || context.construccion) && (!zona)) {
         context.no_zona = true;
         context.construccion = construccion;
-        delete context.numero_zona;
+        delete context.zona;
         console.log(context);
         return resolve(context);
       }
