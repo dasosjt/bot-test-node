@@ -102,18 +102,21 @@ const actions = {
         context.construccion = construccion;
         context.numero_zona = numero_zona;
         delete context.no_construccion;
+        delete context.no_zona;
         console.log(context);
         return resolve(context);
       } else if(construccion && (!numero_zona)) {
-        context.no_construccion = true;
+        context.no_zona = true;
         context.construccion = construccion;
         delete context.numero_zona;
+        delete context.no_construccion;
         console.log(context);
         return resolve(context);
       } else if(numero_zona && (!construccion)){
         context.no_construccion = true;
-        context.construccion = numero_zona;
+        context.numero_zona = numero_zona;
         delete context.construccion;
+        delete context.no_zona;
         console.log(context);
         return resolve(context);
       }
