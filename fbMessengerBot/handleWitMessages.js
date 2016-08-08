@@ -157,10 +157,10 @@ module.exports = function (config) {
     // Example:
     if (context['done']) {
       delete sessions[sessionId];
+    } else {
+      // Updating the user's current session state
+      sessions[sessionId].context = context;
     }
-
-    // Updating the user's current session state
-    sessions[sessionId].context = context;
   })
   .catch((err) => {
     console.error('Oops! Got an error from Wit: ', err.stack || err);
