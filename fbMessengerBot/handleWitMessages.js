@@ -4,7 +4,7 @@ const qrMessage = require('./fbMessage/quickRepliesMessage');
 const attMessage = require('./fbMessage/attachmentMessage');
 
 
-const WIT_TOKEN = 'QFLEV5HJMAT2PPPNC5FQT6R575A5XNIH';
+const WIT_TOKEN = 'SZFBXE24YL4LEHPOX4N7ECQLHJZFSOCL';
 
 let Wit = null;
 let log = null;
