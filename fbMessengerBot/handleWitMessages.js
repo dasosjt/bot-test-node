@@ -123,8 +123,7 @@ const actions = {
   borrar_context({context}){
     console.log("Executing borrar_context()");
     return new Promise(function(resolve, reject){
-      context.done = true;
-      console.log(context);
+      context = {};
       return resolve(context);
     });
   }
@@ -160,9 +159,9 @@ module.exports = function (config) {
     // Based on the session state, you might want to reset the session.
     // This depends heavily on the business logic of your bot.
     // Example:
-    if (context['done']) {
+    /*if (context['done']) {
       context = {};
-    }
+    }*/
 
     // Updating the user's current session state
     sessions[sessionId].context = context;
