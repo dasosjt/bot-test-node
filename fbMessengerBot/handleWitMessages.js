@@ -98,7 +98,7 @@ const actions = {
     return new Promise(function(resolve, reject) {
       context.construccion = firstEntityValue(entities, "construccion");
       context.zona = firstEntityValue(entities, "zona");
-      context.numero_zona = firstEntityValue(entities, "number");
+      context.numero_zona = firstEntityValue(entities, "Zona");
       console.log(context);
       return resolve(context);
     });
