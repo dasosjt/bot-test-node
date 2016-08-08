@@ -100,8 +100,9 @@ const actions = {
         context.construccion = firstEntityValue(entities, "construccion");
         context.zona = firstEntityValue(entities, "zona");
         context.numero_zona = firstEntityValue(entities, "Zona");
+      } else {
+        context.construccion = firstEntityValue(entities, "construccion");
       }
-
       console.log(context);
       return resolve(context);
     });
