@@ -98,6 +98,7 @@ const actions = {
     return new Promise(function(resolve, reject) {
       let construccion = firstEntityValue(entities, "construccion");
       let numero_zona = firstEntityValue(entities, "numero_zona");
+      console.log("Entities", entities);
       console.log("Construccion", construccion);
       console.log("Context Construccion", context.construccion);
       console.log("Numero de Zona", numero_zona);
