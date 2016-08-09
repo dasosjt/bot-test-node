@@ -108,7 +108,7 @@ const actions = {
           context.construccion = construccion;
         }
         context.zona = zona;
-        delete context.zona;
+        delete context.no_zona;
         console.log(context);
         return resolve(context);
       } else if((construccion || context.construccion) && (!zona)) {
