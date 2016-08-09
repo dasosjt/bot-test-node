@@ -121,7 +121,7 @@ const actions = {
 
     });
   },
-  borrar_context({context}){
+  borrar_contexto({context}){
     console.log("Executing borrar_context()");
     return new Promise(function(resolve, reject){
       context = {};
